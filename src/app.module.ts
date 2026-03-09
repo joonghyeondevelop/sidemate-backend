@@ -7,6 +7,8 @@ import { PositionsModule } from './modules/positions/positions.module';
 import { ApplicationsModule } from './modules/applications/applications.module';
 import { MembersModule } from './modules/members/members.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { PrsimaModule } from 'prisma/prisma.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -16,6 +18,10 @@ import { AuthModule } from './modules/auth/auth.module';
     ApplicationsModule,
     MembersModule,
     AuthModule,
+    PrsimaModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
